@@ -23,11 +23,18 @@ public class MyRVAdapter extends RecyclerView.Adapter<MyRVAdapter.MyHolder> {
     List<User> userlist = new ArrayList<>();
     Context context;
 
+
+    // Provide a suitable constructor (depends on the kind of dataset)
     public MyRVAdapter(List<User> userlist, Context context) {
         this.userlist = userlist;
         this.context = context;
     }
 
+
+
+    // Provide a reference to the views for each data item
+    // Complex data items may need more than one view per item, and
+    // you provide access to all the views for a data item in a view holder
 
     @NonNull
     @Override
@@ -37,6 +44,8 @@ public class MyRVAdapter extends RecyclerView.Adapter<MyRVAdapter.MyHolder> {
         return myholder;
     }
 
+
+    // Replace the contents of a view
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         final  User user = userlist.get(position);
@@ -70,7 +79,7 @@ public class MyRVAdapter extends RecyclerView.Adapter<MyRVAdapter.MyHolder> {
     }
 
 
-
+    // Return the size of your dataset
     @Override
     public int getItemCount() {
         return userlist.size();
